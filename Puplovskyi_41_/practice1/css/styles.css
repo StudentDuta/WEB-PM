@@ -1,0 +1,222 @@
+:root {
+    --primary-color: #2c3e50; /* Темно-синій для шапки та футера */
+    --secondary-color: #e67e22; /* Помаранчевий для акцентів та заголовків H2 */
+    --accent-hover: #d35400; /* Темніший помаранчевий для ховеру */
+    --background-light: #f4f7f6; /* Світлий фон сторінки */
+    --text-dark: #333; /* Основний колір тексту */
+    --text-light: #fff; /* Світлий текст */
+    --calendar-border: #dcdcdc;
+    --event-bg-odd: #dfe6e9; /* Світло-сірий для непарних подій */
+    --event-border-odd: #2980b9; /* Синій бордер для непарних */
+    --event-bg-even: #fff3e0; /* Світло-помаранчевий для парних подій */
+    --event-border-even: #e67e22; /* Помаранчевий бордер для парних */
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 600;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: block;
+}
+
+h2 {
+    color: var(--secondary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    text-align: center;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--accent-hover);
+}
+
+
+section {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid var(--secondary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 1px solid var(--calendar-border);
+    text-align: left;
+    padding: 12px;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+.calendar-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 12px 5px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 6px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+
+.calendar-day {
+    min-height: 140px;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid var(--calendar-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+.calendar-day:hover:not(.empty) {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.calendar-day-number {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+}
+
+.calendar-day.empty {
+    background: #f9f9f9;
+    border: none;
+}
+
+.event {
+    background: var(--event-bg-odd);
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    border-left: 4px solid var(--event-border-odd);
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.event:nth-child(even) {
+    background: var(--event-bg-even);
+    border-left-color: var(--event-border-even);
+}
+
+
+@media (max-width: 768px) {
+    .calendar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .calendar-header {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar {
+        grid-template-columns: 1fr;
+    }
+
+    .calendar-day {
+        min-height: auto;
+    }
+}

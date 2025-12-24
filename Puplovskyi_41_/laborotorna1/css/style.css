@@ -1,0 +1,112 @@
+/* Скидання базових відступів */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Градієнтний фон на весь екран */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Стиль заголовка */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+}
+
+/* Контейнер форми */
+form {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    /* М'яка тінь для ефекту глибини */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #fcfcfc;
+    transition: all 0.3s ease;
+}
+
+/* Ефект при кліку на поле вводу */
+input:focus, select:focus {
+    border-color: #764ba2;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.1);
+}
+
+/* Стилізація кнопки */
+button {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: #ffffff;
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+}
+
+/* Ефект при наведенні мишкою */
+button:hover {
+    transform: translateY(-2px); /* Легке підняття кнопки */
+    box-shadow: 0 8px 20px rgba(118, 75, 162, 0.6);
+    /* Можна трохи змінити градієнт або просто залишити ефект тіні */
+    filter: brightness(1.1);
+}
+
+/* Ефект при натисканні */
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(118, 75, 162, 0.4);
+}
+
+/* Адаптивність для мобільних екранів */
+@media (max-width: 480px) {
+    form {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}

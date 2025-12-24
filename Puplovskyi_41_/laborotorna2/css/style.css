@@ -1,0 +1,82 @@
+/* 1. Виділіть перший елемент li та надайте йому жирний шрифт. */
+li:nth-child(1) {
+    font-weight: 700;
+}
+
+/* 2. Виберіть усі елементи a, які є останніми дочірніми елементами... червоний колір. */
+a:last-child {
+    color: #ff0000;
+}
+
+/* 3. Виберіть усі елементи input, які вимкнено (disabled), сірий фон. */
+input:disabled {
+    background-color: #d3d3d3;
+}
+
+/* 4. Виберіть усі елементи p, які є прямими дочірніми елементами div... напівжирний. */
+div > p {
+    font-weight: 600;
+}
+
+/* 5. href починається з https... зелений колір. */
+a[href^="https"] {
+    color: #008000;
+}
+
+/* 6. input type text... рамка 1 піксель суцільним синім. */
+input[type="text"] {
+    border: 1px solid #0000ff;
+}
+
+/* 7. Перші або останні li... шрифт 24 пікселя (конвертовано в rem). */
+li:first-child,
+li:last-child {
+    font-size: 1.5rem;
+}
+
+/* 8. p нащадки div... шрифт 16 пікселів (конвертовано в rem). */
+div p {
+    font-size: 1rem;
+}
+
+/* 9. input checked... світло-блакитний. */
+input:checked {
+    background-color: #87cefa;
+}
+
+/* 10. a прямі дочірні елементи li... підкресліть. */
+li > a {
+    text-decoration-line: underline;
+}
+
+/* 11. li парні елементи... жирний шрифт. */
+li:nth-child(2n) {
+    font-weight: 700;
+}
+
+/* 12. input text і не disabled... сірий фон. */
+input[type="text"]:enabled {
+    background-color: #f0f0f0;
+}
+
+/* 13. p перші дочірні елементи... шрифт 24 пікселя (конвертовано в rem). */
+p:first-child {
+    font-size: 1.5rem;
+}
+
+/* 14. li після елементу .special... перечеркнутий. */
+li.special + li {
+    text-decoration: line-through;
+}
+
+/* 15. Перша літера p... шрифт 36 пікселів (конвертовано в rem). */
+p::first-letter {
+    font-size: 2.25rem;
+}
+
+/* 16. ::after для a... вміст стрілочки. */
+a::after {
+    content: " \2197";
+    font-size: 0.8em;
+    color: #666666;
+}

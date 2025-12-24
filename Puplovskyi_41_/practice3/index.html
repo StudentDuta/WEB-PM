@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <link rel="stylesheet" href="css/practice3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-left">
+        <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo" height="20">
+            <span class="country-code">UA</span>
+        </div>
+    </div>
+
+    <div class="header-center">
+        <div class="search-bar">
+            <input type="text" placeholder="Введіть запит">
+            <button class="search-btn">🔍</button>
+        </div>
+        <div class="voice-icon" title="Голосовий пошук">🎤</div>
+    </div>
+
+    <div class="header-right">
+        <div class="icon" title="Створити">📹</div>
+        <div class="icon" title="Сповіщення">🔔</div>
+        <div class="user-avatar">M</div>
+    </div>
+</header>
+
+<div class="main-container">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Головна</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-text">Shorts</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">📺</span>
+                <span class="nav-text">Підписки</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="sidebar-section">
+            <h4 class="section-title">ВИ</h4>
+            <div class="nav-item">
+                <span class="nav-icon">🕒</span>
+                <span class="nav-text">Історія</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">▶️</span>
+                <span class="nav-text">Ваші відео</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">🕓</span>
+                <span class="nav-text">Дивитись пізніше</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="sidebar-section">
+            <h4 class="section-title">ПІДПИСКИ</h4>
+            <div class="nav-item">
+                <div class="channel-dot"></div>
+                <span class="nav-text">MKBHD</span>
+            </div>
+            <div class="nav-item">
+                <div class="channel-dot"></div>
+                <span class="nav-text">MrBeast</span>
+            </div>
+            <div class="nav-item">
+                <div class="channel-dot"></div>
+                <span class="nav-text">Rozetka</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="content" id="content">
+
+        <div class="chips-container">
+            <button class="chip active">Усі</button>
+            <button class="chip">Відеоігри</button>
+            <button class="chip">Музика</button>
+            <button class="chip">Джаз</button>
+            <button class="chip">Останні завантаження</button>
+            <button class="chip">Переглянуто</button>
+            <button class="chip">Нове для вас</button>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://i.ytimg.com/vi/lx70150993/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDeXW-yv_y_c_v5-v5-v5-v5" alt="Preview">
+                    <span class="duration">14:20</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar">
+                        <img src="https://yt3.ggpht.com/ytc/AIdro_n-y_y_y_y_y_y_y_y_y_y_y_y_y=s68-c-k-c0x00ffffff-no-rj" alt="Channel">
+                    </div>
+                    <div class="video-text">
+                        <h3 class="video-title">iPhone 16 Review: The New Button!</h3>
+                        <p class="channel-name">Marques Brownlee</p>
+                        <p class="meta-info">4.5 млн переглядів • 2 дні тому</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://i.ytimg.com/vi/jfKfPfyJRdk/hqdefault.jpg" alt="Preview">
+                    <span class="duration">3:45</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar">
+                        <img src="https://yt3.ggpht.com/ytc/AIdro_n-y_y_y_y_y_y_y_y_y_y_y_y_y=s68-c-k-c0x00ffffff-no-rj" alt="Channel">
+                    </div>
+                    <div class="video-text">
+                        <h3 class="video-title">lofi hip hop radio - beats to relax/study to</h3>
+                        <p class="channel-name">Lofi Girl</p>
+                        <p class="meta-info">60 тис. глядачів наживо</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://i.ytimg.com/vi/7GHGMQ95h1w/hq720.jpg" alt="Preview">
+                    <span class="duration">10:05</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar">
+                        <img src="https://yt3.ggpht.com/ytc/AIdro_n-y_y_y_y_y_y_y_y_y_y_y_y_y=s68-c-k-c0x00ffffff-no-rj" alt="Channel">
+                    </div>
+                    <div class="video-text">
+                        <h3 class="video-title">Як працює Flexbox за 10 хвилин</h3>
+                        <p class="channel-name">Web Dev Simplified</p>
+                        <p class="meta-info">850 тис. переглядів • 1 рік тому</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="thumbnail">
+                    <img src="https://i.ytimg.com/vi/aqz-KE-bpKQ/hq720.jpg" alt="Preview">
+                    <span class="duration">2:12:30</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar">
+                        <img src="https://yt3.ggpht.com/ytc/AIdro_n-y_y_y_y_y_y_y_y_y_y_y_y_y=s68-c-k-c0x00ffffff-no-rj" alt="Channel">
+                    </div>
+                    <div class="video-text">
+                        <h3 class="video-title">Top 100 Goals of The Year</h3>
+                        <p class="channel-name">Football Daily</p>
+                        <p class="meta-info">1.2 млн переглядів • 3 тижні тому</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('collapsed');
+        document.getElementById('content').classList.toggle('expanded');
+    }
+</script>
+
+</body>
+</html>

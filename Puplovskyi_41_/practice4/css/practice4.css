@@ -1,0 +1,222 @@
+:root {
+    /* Розміри */
+    --base-unit: calc(100vw / 35); /* Трохи менше, щоб вмістити тіні */
+
+    /* Кольори фону */
+    --bg-page: #121212;
+    --bg-keyboard: #1e1e24;
+    --bg-keyboard-inner: #15151a;
+
+    /* Кольори клавіш */
+    --key-top: #2b2b33;
+    --key-side: #18181d;
+    --text-color: #e0e0e0;
+    --text-sub: #777;
+
+    /* Акцентні кольори */
+    --accent-glow: #00d2ff;
+    --accent-glow-red: #ff0055;
+    --border-active: #00d2ff;
+
+    /* Шрифти */
+    --font-main: 'Roboto Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-page);
+    /* Радіальний градієнт для фону */
+    background-image: radial-gradient(circle at 50% 50%, #2a2a35 0%, #121212 100%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+/* Контейнер для клавіатури з брендуванням */
+.keyboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transform: scale(0.9); /* Трохи зменшити, якщо екран малий */
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #444;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.1);
+}
+
+.brand .model {
+    color: var(--accent-glow);
+    font-size: 0.8em;
+    margin-left: 10px;
+    background: rgba(0, 210, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.keyboard {
+    background-color: var(--bg-keyboard);
+    padding: calc(var(--base-unit) * 0.7);
+    border-radius: calc(var(--base-unit) / 2);
+
+    /* Складні тіні для реалістичного вигляду корпусу */
+    box-shadow:
+            inset 0 1px 0 rgba(255,255,255,0.1),
+            0 20px 50px rgba(0,0,0,0.5),
+            0 0 0 1px #000;
+
+    border-bottom: 8px solid #111;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: calc(var(--base-unit) / 1.5);
+    user-select: none;
+    position: relative;
+}
+
+/* Сітки секцій */
+.section {
+    display: grid;
+    grid-template-rows: repeat(6, var(--base-unit));
+    grid-gap: calc(var(--base-unit) / 8);
+}
+
+.section.main-keys { grid-template-columns: repeat(30, calc(var(--base-unit) / 2)); }
+.section.nav-keys { grid-template-columns: repeat(6, calc(var(--base-unit) / 2)); }
+.section.numpad {
+    grid-template-columns: repeat(8, calc(var(--base-unit) / 2));
+    grid-auto-flow: dense;
+}
+
+/* Стиль клавіші */
+.key {
+    background-color: var(--key-top);
+    color: var(--text-color);
+    border-radius: 6px;
+    grid-column: span 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: calc(var(--base-unit) / 4);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.08s ease-out;
+
+    /* 3D ефект клавіші */
+    box-shadow:
+            0 4px 0 var(--key-side),
+            0 5px 5px rgba(0,0,0,0.4),
+            inset 0 1px 0 rgba(255,255,255,0.08);
+
+    margin-bottom: 4px; /* Місце для "ходу" клавіші */
+    border: 1px solid rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* Текст на клавішах */
+.key span:first-child {
+    font-size: 0.7em;
+    color: var(--text-sub);
+    position: absolute;
+    top: 4px;
+    left: 6px;
+}
+.key span:last-child {
+    margin-top: 8px;
+}
+
+/* Функціональні клавіші трохи темніші */
+.func-key {
+    background-color: #25252b;
+    font-size: 0.6em;
+    font-weight: 700;
+}
+
+/* Ефект натискання (Active State) */
+.key:active, .key.active {
+    transform: translateY(4px); /* Рух вниз */
+    box-shadow:
+            0 0 0 var(--key-side),
+            inset 0 0 10px rgba(0,0,0,0.5),
+            0 0 15px var(--accent-glow); /* Неонове світіння */
+
+    color: var(--accent-glow);
+    border-color: var(--accent-glow);
+    margin-bottom: 0;
+    margin-top: 4px;
+    z-index: 2;
+}
+
+/* Акцентні кольори для кнопок */
+.accent-blue {
+    border-bottom-color: #005a8d;
+}
+.accent-blue:active, .accent-blue.active {
+    color: #fff;
+    text-shadow: 0 0 10px #00d2ff;
+}
+
+.accent-red {
+    color: #ff8fa3;
+}
+.accent-red:active, .accent-red.active {
+    box-shadow: 0 0 0 var(--key-side), inset 0 0 10px rgba(0,0,0,0.5), 0 0 20px var(--accent-glow-red);
+    color: var(--accent-glow-red);
+    border-color: var(--accent-glow-red);
+}
+
+/* Спеціальні розміри клавіш (GRID) */
+.gap-1 { grid-column: span 2; }
+.gap-05 { grid-column: span 1; }
+.emptykey { grid-column: span 2; pointer-events: none; }
+
+.backspace  { grid-column: span 4; }
+.tab        { grid-column: span 3; }
+.backslash  { grid-column: span 3; }
+.capslock   { grid-column: span 4; }
+.enter      { grid-column: span 4; }
+.leftshift  { grid-column: span 5; }
+.rightshift { grid-column: span 5; }
+.leftctrl   { grid-column: span 3; }
+.rightctrl  { grid-column: span 3; }
+.space      { grid-column: span 16; }
+
+.zero { grid-column: span 4; }
+.plus-num {
+    grid-row: span 2;
+    height: 100%;
+    margin-bottom: 4px;
+}
+.plus-num:active, .plus-num.active { margin-bottom: 0; margin-top: 4px; }
+
+.enter-num {
+    grid-row: span 2;
+    height: 100%;
+    margin-bottom: 4px;
+    background: #004e7a; /* Синя кнопка Enter */
+    color: white;
+}
+.enter-num:active, .enter-num.active { margin-bottom: 0; margin-top: 4px; }
+
+.sm-text { font-size: 0.55em; letter-spacing: 0.5px; }
+
+/* Адаптивність для стрілок */
+.arrow-key { font-size: 0.8em; }
+
+/* Медіа-запит для малих екранів */
+@media (max-width: 1200px) {
+    :root { --base-unit: 22px; }
+}

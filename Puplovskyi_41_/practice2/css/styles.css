@@ -1,0 +1,256 @@
+/* css/styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Для притискання футера */
+}
+
+/* --- HEADER --- */
+header {
+    background: linear-gradient(135deg, #0f766e, #115e59); /* Сучасний градієнт (Teal) */
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* --- NAVIGATION --- */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    background-color: #ffffff;
+    color: #0f766e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- MAIN CONTENT --- */
+main {
+    padding: 2rem 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 1; /* Розтягує контент, щоб футер був знизу */
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #0d9488;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #0d9488;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+section, .calendar-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+/* --- LINKS LIST STYLES --- */
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+section ul li:last-child {
+    border-bottom: none;
+}
+
+section a {
+    color: #0f766e;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+section a:hover {
+    color: #d97706; /* Акцентний колір при наведенні */
+    text-decoration: underline;
+}
+
+/* --- ABOUT SECTION --- */
+#about {
+    text-align: center;
+}
+
+#about img {
+    border-radius: 50%;
+    border: 4px solid #0d9488;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* --- CALENDAR --- */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-header {
+    text-align: center;
+    font-weight: 700;
+    padding: 10px;
+    background-color: #0f766e;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.calendar-day {
+    min-height: 120px;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover:not(.empty) {
+    transform: scale(1.02);
+    border-color: #0d9488;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    z-index: 2;
+}
+
+.calendar-day-number {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #115e59;
+}
+
+.calendar-day.empty {
+    background: #f9fafb;
+    border: none;
+}
+
+.event {
+    background: #ccfbf1; /* Дуже світлий бірюзовий */
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    border-left: 3px solid #0f766e;
+    color: #134e4a;
+}
+
+.event:nth-child(even) {
+    background: #fffbeb; /* Світло-жовтий */
+    border-left-color: #f59e0b;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #115e59;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: auto;
+}
+
+footer a {
+    color: #5eead4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .calendar {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+    .calendar-header {
+        display: none;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav a {
+        width: 100%;
+        text-align: center;
+        display: block;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar {
+        grid-template-columns: 1fr; /* 1 колонка на мобільних */
+    }
+    .calendar-day {
+        min-height: auto;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
